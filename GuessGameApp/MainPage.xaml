@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GuessGameApp.MainPage"
+             Title="Basic Calculator">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="24">
+            
+            <Grid Padding="10" RowSpacing="12" ColumnSpacing="12">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+         
+        <!--RESULT-->        
+        <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Style = "{StaticResource ResultBoxStyle}">
+            <Label x:Name="ResultLabel"
+                   Text="0"
+                   Style="{StaticResource ResultLabelStyle}"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"/>
+        </Frame>           
+        
+        
+        <Border Grid.Row="1" Grid.Column="3" 
+                BackgroundColor="{StaticResource YellowChip}"
+                Padding="12,0"
+                HeightRequest="60" WidthRequest="130"
+                StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20"/>
+            </Border.StrokeShape>
+            <Entry x:Name="FirstNumberEntry"
+            Style="{StaticResource ChipEntryStyle}"/>
+        </Border>
+        
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+            Text="PLEASE ENTER THE FIRST NUMBER:"
+            Style="{StaticResource PromptLabel}"
+            VerticalOptions="Center"/>
+        
+        <Border Grid.Row="2" Grid.Column="3"
+            BackgroundColor="{StaticResource YellowChip}"
+            Padding="12,0"
+            HeightRequest="60" WidthRequest="130"
+            StrokeThickness="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20"/>
+            </Border.StrokeShape>
+            <Entry x:Name="SecondNumberEntry"
+                   Style="{StaticResource ChipEntryStyle}"/>
+        </Border>
+         
+        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+               Text="PLEASE ENTER THE SECOND NUMBER:"
+               Style="{StaticResource PromptLabel}"
+               VerticalOptions="Center"/>
+        
+        <BoxView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+                 HeightRequest="1"
+                 BackgroundColor="{StaticResource DarkTextColor}"
+                 Opacity="0.25"
+                 Margin="0,4,0,12"/>
+
+        <Button Grid.Row="4" Grid.Column="0" Text="+" Clicked="OnOperationClicked"
+                Style="{StaticResource OperatorButtonStyle}"/>
+        <Button Grid.Row="4" Grid.Column="1" Text="–" Clicked="OnOperationClicked"
+                Style="{StaticResource OperatorButtonStyle}"/>
+        <Button Grid.Row="4" Grid.Column="2" Text="×" Clicked="OnOperationClicked"
+                Style="{StaticResource OperatorButtonStyle}"/>
+        <Button Grid.Row="4" Grid.Column="3" Text="÷" Clicked="OnOperationClicked"
+                Style="{StaticResource OperatorButtonStyle}"/>
+        
+        
+        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
+              ColumnSpacing="24" Margin="0,12,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CalculateButton"
+                    Style="{StaticResource EqualsButtonStyle}"
+                    Clicked="OnCalculateClicked"/>
+            <Button Grid.Column="1" x:Name="ClearButton"
+                    Style="{StaticResource ClearButtonStyle}"
+                    TextColor="White"
+                    Clicked="OnClearClicked"/>
+        </Grid>
+    </Grid>
+        
+        </VerticalStackLayout>
+    </ScrollView>
+    
+
+</ContentPage>
