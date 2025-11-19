@@ -15,6 +15,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
@@ -26,11 +27,19 @@
          
         <!--RESULT-->        
         <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Style = "{StaticResource ResultBoxStyle}">
+            <VerticalStackLayout Spacing="4">
+            <Label x:Name="ExpressionLabel"
+                   Text=""
+                   FontSize="18"
+                   TextColor="Gray"
+                   HorizontalOptions="End"
+                   Opacity="0.7"/>
             <Label x:Name="ResultLabel"
                    Text="0"
                    Style="{StaticResource ResultLabelStyle}"
                    HorizontalOptions="Start"
                    VerticalOptions="Center"/>
+            </VerticalStackLayout>
         </Frame>           
         
         
@@ -43,7 +52,8 @@
                 <RoundRectangle CornerRadius="20"/>
             </Border.StrokeShape>
             <Entry x:Name="FirstNumberEntry"
-            Style="{StaticResource ChipEntryStyle}"/>
+            Style="{StaticResource ChipEntryStyle}"
+            Focused="OnFirstFocused"/>
         </Border>
         
         <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
@@ -60,7 +70,8 @@
                 <RoundRectangle CornerRadius="20"/>
             </Border.StrokeShape>
             <Entry x:Name="SecondNumberEntry"
-                   Style="{StaticResource ChipEntryStyle}"/>
+                   Style="{StaticResource ChipEntryStyle}"
+                   Focused="OnSecondFocused"/>          
         </Border>
          
         <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
@@ -90,14 +101,59 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            
             <Button x:Name="CalculateButton"
                     Style="{StaticResource EqualsButtonStyle}"
                     Clicked="OnCalculateClicked"/>
-            <Button Grid.Column="1" x:Name="ClearButton"
+            
+            <Button Grid.Column="1"
+                    Text="."
+                    Style="{StaticResource OperatorButtonStyle}"
+                    Clicked="OnDecimalClicked"/>
+        </Grid>
+        
+        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
+              ColumnSpacing="12" Margin="0,8,0,0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Text="CE"
+                    x:Name="ClearEntryButton"
+                    BackgroundColor="#888888"
+                    TextColor="White"
+                    CornerRadius="20"
+                    HeightRequest="55"
+                    Clicked="OnClearEntryClicked"/>
+
+            <Button Grid.Column="1"
+                    Text="C"
+                    x:Name="ClearButton"
                     Style="{StaticResource ClearButtonStyle}"
                     TextColor="White"
                     Clicked="OnClearClicked"/>
+
+            <Button Grid.Column="2"
+                    Text="x²"
+                    BackgroundColor="#444"
+                    TextColor="White"
+                    CornerRadius="20"
+                    HeightRequest="55"
+                    Clicked="OnSquareClicked"/>
+            
+            <Button Grid.Column="3"
+                    Text="√"
+                    BackgroundColor="#444"
+                    TextColor="White"
+                    CornerRadius="20"
+                    HeightRequest="55"
+                    Clicked="OnSqrtClicked"/>
         </Grid>
+
     </Grid>
         
         </VerticalStackLayout>

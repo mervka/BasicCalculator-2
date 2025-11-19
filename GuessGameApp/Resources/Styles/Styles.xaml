@@ -71,7 +71,7 @@
     </Style>
     
     <Style x:Key="EqualsButtonStyle" TargetType="Button" BasedOn="{StaticResource OperatorButtonStyle}">
-        <Setter Property="BackgroundColor" Value="{StaticResource AccentCyan}" />
+        <Setter Property="BackgroundColor" Value="#43A047" />
         <Setter Property="Text" Value="=" />
         <Setter Property="FontAttributes" Value="Bold" />
     </Style>

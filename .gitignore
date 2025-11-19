@@ -1,0 +1,43 @@
+# Build results
+bin/
+obj/
+app/bin/
+app/obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Auto-generated
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# Rider / IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Visual Studio
+.vs/
+
+# MAUI specific
+**/platforms/android/**/resources/Raw/
+**/platforms/ios/**/resources/Raw/
+
+# NuGet
+*.nupkg
+packages/
+*.snupkg
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment
+*.env
