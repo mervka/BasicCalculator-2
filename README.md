@@ -43,4 +43,3 @@ Users enter:
 
 ## Notes
 This application was created as part of a course assignment.  
-The goal was to practice UI design, event handling, and calculation logic using .NET MAUI.
